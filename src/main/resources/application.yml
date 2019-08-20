@@ -1,0 +1,15 @@
+server:
+  port: 8443
+  ssl:
+    client-auth: need
+    enabled: true
+    key-alias: service1
+    key-password: changeit
+    key-store: classpath:./service1.p12
+    key-store-password: changeit
+    key-store-type: PKCS12
+    trust-store: classpath:./service1-truststore.pkcs12
+    trust-store-password: changeit
+logging:
+  level:
+    org.eclipse.jetty: info

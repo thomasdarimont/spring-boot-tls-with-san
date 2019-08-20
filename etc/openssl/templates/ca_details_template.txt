@@ -1,0 +1,22 @@
+# see https://jamielinux.com/docs/openssl-certificate-authority/appendix/root-configuration-file.html
+
+[req]
+default_bits = 4096
+prompt = no
+default_md = sha256
+x509_extensions  = v3_ca
+distinguished_name = dn
+
+[ dn ]
+C=DE
+ST=SL
+L=Germany
+O=tdlabs
+OU=infra
+CN=$certCN
+
+[ v3_ca ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign

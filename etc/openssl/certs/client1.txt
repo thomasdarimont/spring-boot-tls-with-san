@@ -1,0 +1,27 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+req_extensions = req_ext
+distinguished_name = dn
+
+[ dn ]
+C=DE
+ST=SL
+L=Germany
+O=tdlabs
+OU=clients
+CN=client1
+
+[ req_ext ]
+basicConstraints = CA:FALSE
+nsCertType = client
+nsComment = "OpenSSL Generated Client Certificate"
+subjectKeyIdentifier = hash
+keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = clientAuth
+subjectAltName = @alt_names
+
+[ alt_names ]
+IP.1 = 127.0.0.1
+DNS.2 = client1.tdlabs.local

@@ -1,0 +1,28 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+req_extensions = req_ext
+distinguished_name = dn
+
+[ dn ]
+C=DE
+ST=SL
+L=Germany
+O=tdlabs
+OU=services
+emailAddress=service1@services.tdlabs.local
+CN=service1
+
+[ req_ext ]
+basicConstraints = CA:FALSE
+nsCertType = server
+nsComment = "OpenSSL Generated Server Certificate"
+subjectKeyIdentifier = hash
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = apps.tdlabs.local
+DNS.2 = service1.api.tdlabs.local
